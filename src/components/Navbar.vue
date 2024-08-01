@@ -20,6 +20,9 @@
       <li class="nav-item">
         <RouterLink to="/animals"> <a class="nav-link" href="#">Animals</a></RouterLink>
       </li>
+      <li class="nav-item" id="zootopia">
+        <RouterLink to="/animals"> <a class="nav-link" href="#">Zootopia</a></RouterLink>
+      </li>
     </ul>
   </div>
 </nav>
@@ -39,6 +42,7 @@
 
 #myNav{
     background-color:#3FB37E !important;
+    color: black !important;
 }
 
 #lyon{
@@ -51,5 +55,11 @@
     font-weight: bold;
     padding-left: 30px;
   }
+
+#zootopia{
+  display: flex;
+  justify-content: flex-end;
+}
+
 
 </style>
