@@ -4,6 +4,6 @@
 
 <template>
   <main>
-    <h1> Hello Oscar vamos a hacer una prueba de pull reque</h1>
+    <h1> Hello Oscarcito my love </h1>
   </main>
 </template>
