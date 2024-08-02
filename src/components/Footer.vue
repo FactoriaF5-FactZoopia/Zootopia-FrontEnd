@@ -40,5 +40,12 @@ html, body {
   width: 100%;
   text-align: center;
   padding: 10px 0;
+ 
+
+}
+.footer a {
+  margin: 0 10px;
+  color: #007bff;
+  text-decoration: none;
 }
 </style>
