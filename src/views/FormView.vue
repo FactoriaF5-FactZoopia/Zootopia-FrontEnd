@@ -1,9 +1,11 @@
 <script setup>
-
+import Form from '../components/Form.vue';
 </script>
 
 <template>
   <main>
-    <h1> Hello Form</h1>
+  
+  <Form />
+    
   </main>
 </template>
