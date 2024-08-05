@@ -1,9 +1,15 @@
 <script setup>
+import Login from '@/components/Login.vue';
+
 
 </script>
 
 <template>
+
   <main>
-    <h1> Hello Oscarcito my love </h1>
+
+    <Login />
+
   </main>
+
 </template>
