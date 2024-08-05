@@ -8,12 +8,22 @@
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary" >Go somewhere</a>
+    <a href="#" id="btn" class="btn btn-primary" >EDIT</a>
+    <a href="#" id="btn" class="btn btn-danger" >DELETE</a>
+
   </div>
 </div>
 
 </template>
 
 <style scoped>
+
+#card-title {
+    text-align: center;
+}
+
+#btn {
+    margin-left: 30px;
+}
 
 </style>
