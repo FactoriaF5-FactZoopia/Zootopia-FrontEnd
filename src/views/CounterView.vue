@@ -1,9 +1,7 @@
 <script setup>
-
+import Chart from "@/components/Chart.vue";
 </script>
 
 <template>
-  <main>
-    <h1> Hello Counter</h1>
-  </main>
+  <main><Chart></Chart></main>
 </template>
