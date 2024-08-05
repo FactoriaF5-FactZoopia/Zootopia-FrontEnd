@@ -1,9 +1,13 @@
 <script setup>
+import Cards from '@/components/Cards.vue';
+
 
 </script>
 
 <template>
   <main>
-    <h1> Hello Animal </h1>
+
+    <Cards />
+
   </main>
 </template>
