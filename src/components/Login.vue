@@ -29,7 +29,7 @@
 .register-photo .image-holder {
   display: table-cell;
   width: auto;
-  background: url(https://i.imgur.com/Fqm9rWL.jpg);
+  background: url(../assets/Image20240805123506.png);
   background-size: cover;
 }
 
