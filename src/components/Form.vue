@@ -16,15 +16,27 @@
       <div class="col-12">
         <label for="validationDefault03" class="form-label">Family</label>
         <input type="text" class="form-control" id="validationDefault03" required>
+      <select id="dropdown">
+        <option value="Félidos">Félidos</option>
+        <option value="Cánidos">Cánidos</option>
+        <option value="Reptiles">Reptiles</option>
+        <option value="Mustelids">Mustelids</option>
+        <option value="Leporidae">Leporidae</option>
+      </select>
       </div>
       <div class="col-12">
         <label for="validationDefault04" class="form-label">Gender</label>
         <input type="text" class="form-control" id="validationDefault04" required>
+      <select id="dropdown">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        
+      </select>
       </div>
-      <div class="col-12">
-        <label for="validationDefault05" class="form-label">Date</label>
-        <input type="text" class="form-control" id="validationDefault05" required>
-      </div>
+    <div class="col-12">
+    <label for="validationDefault02" class="form-label">Date</label>
+    <input type="date" class="form-control" id="validationDefault02" required>
+</div>
       <div class="col-12">
         <button class="btn btn-primary" type="submit">Submit form</button>
       </div>
