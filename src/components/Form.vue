@@ -5,40 +5,37 @@
 <template>
   <div class="container">
     <form class="form">
-      <div class="col-12">
+      <div class="form-group">
         <label for="validationDefault01" class="form-label">Name</label>
         <input type="text" class="form-control" id="validationDefault01" required>
       </div>
-      <div class="col-12">
+      <div class="form-group">
         <label for="validationDefault02" class="form-label">Type</label>
         <input type="text" class="form-control" id="validationDefault02" required>
       </div>
-      <div class="col-12">
+      <div class="form-group">
         <label for="validationDefault03" class="form-label">Family</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
-      <select id="dropdown">
-        <option value="Félidos">Félidos</option>
-        <option value="Cánidos">Cánidos</option>
-        <option value="Reptiles">Reptiles</option>
-        <option value="Mustelids">Mustelids</option>
-        <option value="Leporidae">Leporidae</option>
-      </select>
+        <select id="dropdown" class="form-control">
+          <option value="Félidos">Félidos</option>
+          <option value="Cánidos">Cánidos</option>
+          <option value="Reptiles">Reptiles</option>
+          <option value="Mustelids">Mustelids</option>
+          <option value="Leporidae">Leporidae</option>
+        </select>
       </div>
-      <div class="col-12">
+      <div class="form-group">
         <label for="validationDefault04" class="form-label">Gender</label>
-        <input type="text" class="form-control" id="validationDefault04" required>
-      <select id="dropdown">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        
-      </select>
+        <select id="dropdown" class="form-control">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </div>
-    <div class="col-12">
-    <label for="validationDefault02" class="form-label">Date</label>
-    <input type="date" class="form-control" id="validationDefault02" required>
-</div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
+      <div class="form-group">
+        <label for="validationDefault05" class="form-label">Date</label>
+        <input type="date" class="form-control" id="validationDefault05" required>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add Animal</button>
       </div>
     </form>
   </div>
@@ -58,10 +55,14 @@
   width: 100%;
   max-width: 500px;
   background-color: #3FB37E;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   border: 1px solid #4caf50;
+}
+
+.form-group {
+  margin-bottom: 15px;
 }
 
 .btn-primary {
@@ -80,4 +81,3 @@
   }
 }
 </style>
-
