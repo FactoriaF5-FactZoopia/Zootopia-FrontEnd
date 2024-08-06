@@ -3,21 +3,21 @@
 </script>
 
 <template>
-<div class="register-photo">
-        <div class="form-container">
-            <div class="image-holder"></div>
-            <form method="post">
-                <img class="user" src="../assets/User.png" height="100px" width="100px">
-                <h2 class="text-center"><strong>Login</strong></h2>
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
-                <div class="form-group">
-                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
-                </div>
-                <div class="form-group"><button class="btn btn-success btn-block" type="submit">Sign Up</button></div><a class="already" href="#">You already have an account? Login here.</a></form>
+  <div class="register-photo">
+    <div class="form-container">
+      <div class="image-holder"></div>
+      <form method="post">
+        <div id="logoUser"><img class="user" src="../assets/user-regular.svg" height="100px" width="100px"></div>
+        <h2 id="login" class="text-center"><strong>LOGIN</strong></h2>
+        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+        <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password">
         </div>
+        <div class="form-group">
+        </div>
+        <div id="button" class="form-group"><button class="btn btn-success btn-block" type="submit">Login</button></div>
+      </form>
     </div>
+  </div>
 </template>
 
 <style scoped>
@@ -29,7 +29,7 @@
 .register-photo .image-holder {
   display: table-cell;
   width: auto;
-  background: url(https://i.imgur.com/Fqm9rWL.jpg);
+  background: url(../assets/Image20240805123506.png);
   background-size: cover;
 }
 
@@ -38,7 +38,7 @@
   max-width: 900px;
   width: 90%;
   margin: 0 auto;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .register-photo form {
@@ -79,7 +79,7 @@
 }
 
 .register-photo form .btn-primary {
-  background: green;
+  background: #3fb37e !important;
   border: none;
   border-radius: 4px;
   padding: 11px;
@@ -87,10 +87,11 @@
   margin-top: 35px;
   text-shadow: none;
   outline: none !important;
-  
+
 }
 
-.register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+.register-photo form .btn-primary:hover,
+.register-photo form .btn-primary:active {
   background: green;
 
 }
@@ -108,13 +109,25 @@
   text-decoration: none;
 }
 
-.btn {
-   margin-left: 100px;
-   margin-top: 10px;
-
+#login {
+  justify-content: center;
 }
 
-.user {
-    margin-left: 90px;
+.btn {
+  background: #3fb37e !important;
+  width: 100px;
+  margin-top: 50px;
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
