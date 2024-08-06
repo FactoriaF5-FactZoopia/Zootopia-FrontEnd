@@ -9,10 +9,10 @@
     <footer class="footer">
       <div>
         <p>© 2024 Your Company 
-          <a href="https://www.facebook.com" target="_blank">Facebook</a>
-          <a href="https://www.instagram.com" target="_blank">Instagram</a>
-          <a href="https://www.twitter.com" target="_blank">Twitter</a>
-          <a href="https://www.whatsapp.com" target="_blank">WhatsApp</a>
+          <a href="https://www.facebook.com"  target="_blank"><img src= "../assets/facebook.png"></a>
+          <a href="https://www.instagram.com" target="_blank"><img src= "../assets/instagram.png"></a>
+          <a href="https://www.twitter.com" target="_blank"><img src= "../assets/twitter.png"></a>
+          <a href="https://www.whatsapp.com" target="_blank"><img src= "../assets/whatsapp.png"></a>
         </p>
       </div>
     </footer>
@@ -40,12 +40,20 @@ html, body {
   width: 100%;
   text-align: center;
   padding: 10px 0;
- 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 
 }
 .footer a {
   margin: 0 10px;
   color: #007bff;
   text-decoration: none;
+}
+img{
+  width: 30px;
+}
+p{
+  font-weight: bold;
 }
 </style>
