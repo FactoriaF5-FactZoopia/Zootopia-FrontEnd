@@ -1,5 +1,32 @@
 <script setup>
-  name: 'CenteredForm'
+import { ref } from 'vue';
+
+const form = ref {
+  data() {
+    return {
+      form: {
+        name: '',
+        type: '',
+        family: '',
+        gender: '',
+        date: ''
+      },
+      errorMessage: ''
+    };
+  },
+  methods: {
+    handleSubmit() {
+      if (this.form.name && this.form.type && this.form.family && this.form.gender && this.form.date) {
+        // Logic to handle form submission
+        this.errorMessage = '';
+        // You can add an API call here to submit the data to the backend
+        console.log('Form submitted:', this.form);
+      } else {
+        this.errorMessage = 'All fields are required.';
+      }
+    }
+  }
+};
 </script>
 
 <template>
