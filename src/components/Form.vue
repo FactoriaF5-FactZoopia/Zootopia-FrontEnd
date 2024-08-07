@@ -1,30 +1,25 @@
 <script setup>
 import { ref } from 'vue';
 
-const form = ref {
-  data() {
-    return {
-      form: {
-        name: '',
-        type: '',
-        family: '',
-        gender: '',
-        date: ''
-      },
-      errorMessage: ''
-    };
-  },
-  methods: {
-    handleSubmit() {
-      if (this.form.name && this.form.type && this.form.family && this.form.gender && this.form.date) {
-        // Logic to handle form submission
-        this.errorMessage = '';
-        // You can add an API call here to submit the data to the backend
-        console.log('Form submitted:', this.form);
-      } else {
-        this.errorMessage = 'All fields are required.';
-      }
-    }
+const form = ref({
+  name: '',
+  type: '',
+  family: '',
+  gender: '',
+  date: ''
+});
+
+const errorMessage = ref('');
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  if (form.value.name && form.value.type && form.value.family && form.value.gender && form.value.date) {
+    errorMessage.value = '';
+    alert('Form submitted successfully!');
+    console.log('Form submitted:', form.value);
+  } else {
+    errorMessage.value = 'All fields are required.';
+    alert(errorMessage.value);
   }
 };
 </script>
@@ -43,11 +38,11 @@ const form = ref {
       <div class="form-group">
         <label for="validationDefault03" class="form-label">Family</label>
         <select id="dropdown" class="form-control">
-          <option value="Félidos">Félidos</option>
-          <option value="Cánidos">Cánidos</option>
-          <option value="Reptiles">Reptiles</option>
-          <option value="Mustelids">Mustelids</option>
-          <option value="Leporidae">Leporidae</option>
+          <option value="felines">Felines</option>
+          <option value="canines">Canines</option>
+          <option value="reptiles">Reptiles</option>
+          <option value="mustelids">Mustelids</option>
+          <option value="leporidae">Leporidae</option>
         </select>
       </div>
       <div class="form-group">
