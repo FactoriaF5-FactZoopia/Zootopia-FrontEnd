@@ -8,8 +8,8 @@
       <h5 class="card-title">Felids</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div id = "botton">
-        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons" alt="Card image cap"> </a>
-        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/bin.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
     </div>
     </div>
     </div>
@@ -19,8 +19,8 @@
       <h5 class="card-title">Canids</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div id = "botton">
-        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/edit.png" alt="Card image cap"> </a>
-        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/bin.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
     </div>
     </div>
     </div>
@@ -30,8 +30,8 @@
       <h5 class="card-title">Reptiles</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div id = "botton">
-        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/edit.png" alt="Card image cap"> </a>
-        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/bin.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
     </div>
     </div>
     </div>
@@ -41,8 +41,8 @@
       <h5 class="card-title">Mustelids</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div id = "botton">
-        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/edit.png" alt="Card image cap"> </a>
-        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/bin.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
     </div>
     </div>
     </div>
@@ -52,8 +52,8 @@
       <h5 class="card-title">Leporidae</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div id = "botton">
-        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/edit.png" alt="Card image cap"> </a>
-        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/bin.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
+        <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
     </div>
     </div>
     </div>
