@@ -3,7 +3,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNav">
     <span class="navbar-text">
-      <img src="../assets/Logo.png" alt="Lyon faczoopia logo" id="lyon" />
+      <img src="../assets/logo.png" alt="Lyon faczoopia logo" id="lyon" />
     </span>
     <button
       class="navbar-toggler"
@@ -37,6 +37,11 @@
         <li class="nav-item">
           <RouterLink to="/animals" id="linkrouter">
             <a class="nav-link" href="#">Animals</a>
+          </RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/animals2" id="linkrouter">
+            <a class="nav-link" href="#">Animals2</a>
           </RouterLink>
         </li>
       </ul>
@@ -98,10 +103,9 @@ a:hover {
   color: #174030;
 }
 
-/* Media query to adjust navbar-toggler on smaller screens */
 @media (max-width: 480px) {
   #navbar-toggler {
-    margin-right: 25px !important; /* Move the button 10px to the left */
+    margin-right: 25px !important;
   }
   #myNav {
     height: 95px;

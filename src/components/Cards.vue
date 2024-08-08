@@ -1,8 +1,7 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
+
   <div id = "container">
 
   
@@ -75,19 +74,6 @@
 #container{
   display: flex;
 
-}
-.bin{
-  width: 25px;
-
-}
-
-#card-title {
-    text-align: center;
-}
-
-#btn {
-    margin-left: 20px;
-}
 #bin{
   width: 1px;
   height: 1px;
