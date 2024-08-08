@@ -1,15 +1,11 @@
 <script setup>
-import Login from '@/components/Login.vue';
-
-
+import Form from '../components/Form.vue';
 </script>
 
 <template>
-
   <main>
-
-    <Login />
-
+  
+  <Form />
+    
   </main>
-
 </template>
