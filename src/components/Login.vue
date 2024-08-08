@@ -3,6 +3,7 @@
 </script>
 
 <template>
+
   <div class="register-photo">
     <div class="form-container">
       <div class="image-holder"></div>
@@ -18,6 +19,7 @@
       </form>
     </div>
   </div>
+  
 </template>
 
 <style scoped>
