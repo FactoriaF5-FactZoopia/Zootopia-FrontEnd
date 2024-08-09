@@ -7,10 +7,17 @@
       <img class="card-img-top" src="../assets/imgAnimal/cat1.jpg" alt="Card image cap">
       <div class="card-body">
         <div class="buttones">
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
+          <button> Nombre</button>
+          <button>.</button>
+          <button> Tipo</button>
+          <button> .</button>
+          <button> Familia a la que pertece</button>
+          <button> .</button>
+          <button> Genero</button>
+          <button> .</button>
+          <button> Fecha de ingreso</button>
+          <button> .</button>
+
         </div>
       <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
@@ -24,10 +31,16 @@
       <img class="card-img-top" src="../assets/imgAnimal/Canids.jpg" alt="Card image cap">
       <div class="card-body">
         <div class="buttones">
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
+          <button> Nombre</button>
+          <button>.</button>
+          <button> Tipo</button>
+          <button> .</button>
+          <button> Familia a la que pertece</button>
+          <button> .</button>
+          <button> Genero</button>
+          <button> .</button>
+          <button> Fecha de ingreso</button>
+          <button> .</button>
         </div>
         <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
@@ -41,10 +54,16 @@
       <img class="card-img-top" src="../assets/imgAnimal/reptiles.jpg" alt="Card image cap">
       <div class="card-body">
         <div class="buttones">
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
+          <button> Nombre</button>
+          <button>.</button>
+          <button> Tipo</button>
+          <button> .</button>
+          <button> Familia a la que pertece</button>
+          <button> .</button>
+          <button> Genero</button>
+          <button> .</button>
+          <button> Fecha de ingreso</button>
+          <button> .</button>
         </div>
         <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
@@ -58,10 +77,16 @@
       <img class="card-img-top" src="../assets/imgAnimal/Mustelids.jpg" alt="Card image cap">
       <div class="card-body">
         <div class="buttones">
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
+          <button> Nombre</button>
+          <button>.</button>
+          <button> Tipo</button>
+          <button> .</button>
+          <button> Familia a la que pertece</button>
+          <button> .</button>
+          <button> Genero</button>
+          <button> .</button>
+          <button> Fecha de ingreso</button>
+          <button> .</button>
         </div>
         <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
@@ -76,10 +101,16 @@
       <div class="card-body">
      
         <div class="buttones">
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
-          <button> felids</button>
+          <button> Nombre</button>
+          <button>.</button>
+          <button> Tipo</button>
+          <button> .</button>
+          <button> Familia a la que pertece</button>
+          <button> .</button>
+          <button> Genero</button>
+          <button> .</button>
+          <button> Fecha de ingreso</button>
+          <button> .</button>
         </div>   <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
           <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
@@ -90,6 +121,8 @@
   </div>
 </template>
 <style scoped>
+
+
 #container{
   display: flex;
   
@@ -106,6 +139,7 @@
 }
 button{
   margin: 5px;
+  text-align: left;
 }
 
 .bin{
