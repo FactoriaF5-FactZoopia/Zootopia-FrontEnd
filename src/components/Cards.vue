@@ -101,26 +101,30 @@
       <div class="card-body">
      
         <div class="buttones">
-          <button> Nombre</button>
+          <button> Name</button>
           <button>.</button>
-          <button> Tipo</button>
+          <button> Type</button>
           <button> .</button>
-          <button> Familia a la que pertece</button>
+          <button> Family</button>
           <button> .</button>
-          <button> Genero</button>
+          <button> Gender</button>
           <button> .</button>
-          <button> Fecha de ingreso</button>
+          <button> Date</button>
           <button> .</button>
         </div>   <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
           <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
-      </div>
+        </div>
       </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
+
+#botton{
+  align-items: center;
+}
 
 
 #container{
