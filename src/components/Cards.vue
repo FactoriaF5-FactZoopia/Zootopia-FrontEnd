@@ -12,7 +12,6 @@
           <button> felids</button>
           <button> felids</button>
         </div>
-        
       <div id = "botton">
           <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
           <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
@@ -103,10 +102,10 @@
 }
 .buttones{
   display: grid;
+  margin-bottom: 20px;
 }
 button{
   margin: 5px;
-
 }
 
 .bin{
@@ -118,14 +117,10 @@ button{
 #btn {
     margin-left: 20px;
 }
-#bin{
-  width: 1px;
-  height: 1px;
-}
+
 #card-img-top{
   width: 50px;
   height: 70px;
-  margin: 5px;
 }
 
 </style>
