@@ -9,7 +9,7 @@
             <div class="allanimals">
               <img
                 id="imganimals"
-                src="../assets/allanimals.jpg"
+                src="../assets/imgAnimal/allanimals.jpg"
                 alt="Animals"
               />
               <div id="contSpan">
@@ -23,31 +23,31 @@
         <div class="categories">
           <div class="boxcategory">
             <div class="category felidos" id="impares">
-              <img src="../assets/felido.jpg" alt="Felidos" />
+              <img src="../assets/imgAnimal/felido.jpg" alt="Felidos" />
               <span>FELIDOS</span>
             </div>
           </div>
           <div class="boxcategory">
             <div class="category canidos" id="pares">
-              <img src="../assets/canido.jpg" alt="Canidos" />
+              <img src="../assets/imgAnimal/canido.jpg" alt="Canidos" />
               <span>CANIDOS</span>
             </div>
           </div>
           <div class="boxcategory">
             <div class="category reptiles" id="impares">
-              <img src="../assets/reptiles.jpg" alt="Reptiles" />
+              <img src="../assets/imgAnimal/reptiles.jpg" alt="Reptiles" />
               <span>REPTILES</span>
             </div>
           </div>
           <div class="boxcategory">
             <div class="category mustelidos" id="pares">
-              <img src="../assets/mustelido.jpg" alt="Mustelidos" />
+              <img src="../assets/imgAnimal/mustelido.jpg" alt="Mustelidos" />
               <span>MUSTELIDOS</span>
             </div>
           </div>
           <div class="boxcategory">
             <div class="category leporidae" id="impares">
-              <img src="../assets/leporidae.jpg" alt="Leporidae" />
+              <img src="../assets/imgAnimal/leporidae.jpg" alt="Leporidae" />
               <span>LEPORIDAE</span>
             </div>
           </div>

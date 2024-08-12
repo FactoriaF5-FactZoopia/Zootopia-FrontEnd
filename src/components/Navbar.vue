@@ -3,7 +3,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNav">
     <span class="navbar-text">
-      <img src="../assets/logo.png" alt="Lyon faczoopia logo" id="lyon" />
+      <img src="../assets/icons/Logo.png" alt="Lyon faczoopia logo" id="lyon" />
     </span>
     <button
       class="navbar-toggler"
