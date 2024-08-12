@@ -123,6 +123,7 @@
 <style scoped>
 
 #botton{
+  display: flex;
   align-items: center;
 }
 
