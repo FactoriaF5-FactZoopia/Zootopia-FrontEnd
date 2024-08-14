@@ -1,31 +1,142 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-
-  <div class="register-photo">
-    <div class="form-container">
-      <div class="image-holder"></div>
-      <form method="post">
-        <div id="logoUser"><img class="user" src="../assets/user-regular.svg" height="100px" width="100px"></div>
-        <h2 id="login" class="text-center"><strong>LOGIN</strong></h2>
-        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-        <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password">
+  <main>
+    <div id="boxTitle">
+      <div id="boxmain">
+        <div id="boxPhoto">
+          <img src="../assets/leonhome.png" id="imgHome" alt="leonhome" />
         </div>
-        <div class="form-group">
-        </div>
-        <div id="button" class="form-group"><button class="btn btn-success btn-block" type="submit">Login</button></div>
-      </form>
+        <section class="container">
+          <h2 class="neon-text">ZOOTOPIA</h2>
+        </section>
+      </div>
     </div>
-  </div>
-  
+    <div id="boxLogin">
+      <div class="login-form">
+        <h1>CONNECT WITH US</h1>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username "
+            id="UserName"
+          />
+          <i class="mdi mdi-account"></i>
+        </div>
+        <div class="form-group log-status">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            id="Passwod"
+          />
+          <i class="mdi mdi-lock"></i>
+        </div>
+        <span class="alert">Invalid Credentials</span>
+        <div id="boxButton">
+          <button type="button" class="log-btn">
+            <i class="mdi mdi-account"></i> LOGIN
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
-.register-photo {
-  background: #f1f7fc;
-  padding: 80px 0;
+main {
+  display: inline-grid;
+  grid-template-columns: 65% 35%;
+  width: 100%;
+  min-height: 810px;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.neon-text {
+  font-size: 180px;
+  transition: 3s linear;
+  color: transparent;
+
+  background-image: linear-gradient(
+    to left,
+    #3fb37e,
+    #2d3e50,
+    #2d3e50,
+    #2d3e50
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  animation: move 10s linear infinite;
+}
+
+.neon-text:hover {
+  color: #3fb37e;
+  text-shadow: 0 0 10px #2f9265, 0 0 10px #2f9265, 0 0 10px #2f9265,
+    0 0 10px #2f9265, 0 0 10px #2f9265, 0 0 10px #2f9265;
+}
+
+@keyframes move {
+  100% {
+    background-position: 2000px 0;
+    color: #3fb37e;
+    text-shadow: 0 0 10px #2f9265, 0 0 10px #2f9265, 0 0 10px #2f9265,
+      0 0 10px #2f9265, 0 0 10px #2f9265, 0 0 10px #2f9265;
+  }
+}
+#boxTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 805px;
+}
+#boxmain {
+  width: 100%;
+  height: 80%;
+}
+#boxPhoto {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#imgHome {
+  width: 40%;
+  height: 100%;
+}
+#boxText {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#boxLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 805px;
+}
+.text {
+  background: url(/src/assets/snakegif.gif);
+  background-size: contain;
+  background-position: top left;
+  color: transparent;
+  background-clip: text;
+  font-size: 170px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 .register-photo .image-holder {
@@ -35,23 +146,7 @@
   background-size: cover;
 }
 
-.register-photo .form-container {
-  display: table;
-  max-width: 900px;
-  width: 90%;
-  margin: 0 auto;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.register-photo form {
-  display: table-cell;
-  width: 400px;
-  background-color: #ffffff;
-  padding: 40px 60px;
-  color: #505e6c;
-}
-
-@media (max-width:991px) {
+@media (max-width: 991px) {
   .register-photo form {
     padding: 40px;
   }
@@ -81,7 +176,7 @@
 }
 
 .register-photo form .btn-primary {
-  background: #3fb37e !important;
+  background: #2d3e50 !important;
   border: none;
   border-radius: 4px;
   padding: 11px;
@@ -89,13 +184,11 @@
   margin-top: 35px;
   text-shadow: none;
   outline: none !important;
-
 }
 
 .register-photo form .btn-primary:hover,
 .register-photo form .btn-primary:active {
   background: green;
-
 }
 
 .register-photo form .btn-primary:active {
@@ -116,7 +209,7 @@
 }
 
 .btn {
-  background: #3fb37e !important;
+  background: #2d3e50 !important;
   width: 100px;
   margin-top: 50px;
 }
@@ -131,5 +224,156 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1 {
+  color: #2d3e50;
+  text-align: center;
+
+  font-size: 30px;
+}
+
+.login-form {
+  width: 550px;
+  border-radius: 10px;
+  width: 65%;
+  height: 45%;
+  padding: 40px 30px;
+  background: #3fb37e;
+  margin: auto;
+  border: 1px solid #fff;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+.form-control {
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding: 5px 7px 5px 15px;
+  background: #fff;
+  color: #666;
+  border: 2px solid #ddd;
+}
+.form-group .mdi {
+  position: absolute;
+  right: 15px;
+  top: 17px;
+  color: #999;
+}
+
+.mdi {
+  top: 13px !important;
+  color: #0ac986 !important;
+}
+
+.form-control:hover {
+  color: #fff !important;
+  background-color: white;
+  border-color: #fff !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.log-status.wrong-entry .form-control,
+.wrong-entry .form-control + .mdi {
+  border-color: #ed1c24;
+  color: #ed1c24;
+}
+.log-btn {
+  background: #2d3e50;
+  display: inline-block;
+  width: 95%;
+  font-size: 16px;
+  height: 50px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #c6c6c6;
+  float: right;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.alert {
+  display: none;
+  font-size: 12px;
+  color: #f00;
+  float: left;
+}
+
+a {
+  text-decoration: none !important;
+}
+#boxButton {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, white, grey, white, grey, white);
+  animation: moveGradient 1s linear infinite;
+  transition: background-position 1.5s linear;
+  background-size: 200% auto;
+}
+#boxButton:hover {
+  background-image: linear-gradient(
+    to right,
+    white,
+    #153750,
+    white,
+    #153750,
+    white
+  );
+  background-position: 100% 50%;
+  animation: moveGradient 1s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #boxTitle,
+  #boxLogin {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  #imgHome {
+    width: 80%;
+    height: auto;
+  }
+  .neon-text {
+    font-size: 60px;
+  }
+  .login-form {
+    width: 90%;
+    height: auto;
+  }
+  .form-control {
+    height: 40px;
+  }
+  .log-btn {
+    height: 40px;
+    width: 91%;
+    border-radius: 3px;
+  }
 }
 </style>

@@ -3,56 +3,50 @@
 <template>
   <main>
     <div class="container">
-      <main>
-        <div class="all-animals">
-          <div class="boxanimals">
-            <div class="allanimals">
-              <img
-                id="imganimals"
-                src="../assets/imgAnimal/allanimals.jpg"
-                alt="Animals"
-              />
-              <div id="contSpan">
-                <div id="spanAnimals">
-                  <span id="animalsspan">ALL &nbsp ANIMALS</span>
-                </div>
+      <div class="all-animals">
+        <div class="boxanimals">
+          <div class="allanimals">
+            <img id="imganimals" src="../assets/allanimals.jpg" alt="Animals" />
+            <div id="contSpan">
+              <div id="spanAnimals">
+                <span id="animalsspan">ALL &nbsp ANIMALS</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="categories">
-          <div class="boxcategory">
-            <div class="category felidos" id="impares">
-              <img src="../assets/imgAnimal/felido.jpg" alt="Felidos" />
-              <span>FELIDOS</span>
-            </div>
-          </div>
-          <div class="boxcategory">
-            <div class="category canidos" id="pares">
-              <img src="../assets/imgAnimal/canido.jpg" alt="Canidos" />
-              <span>CANIDOS</span>
-            </div>
-          </div>
-          <div class="boxcategory">
-            <div class="category reptiles" id="impares">
-              <img src="../assets/imgAnimal/reptiles.jpg" alt="Reptiles" />
-              <span>REPTILES</span>
-            </div>
-          </div>
-          <div class="boxcategory">
-            <div class="category mustelidos" id="pares">
-              <img src="../assets/imgAnimal/mustelido.jpg" alt="Mustelidos" />
-              <span>MUSTELIDOS</span>
-            </div>
-          </div>
-          <div class="boxcategory">
-            <div class="category leporidae" id="impares">
-              <img src="../assets/imgAnimal/leporidae.jpg" alt="Leporidae" />
-              <span>LEPORIDAE</span>
-            </div>
+      </div>
+      <div class="categories">
+        <div class="boxcategory">
+          <div class="category felidos" id="impares">
+            <img src="../assets/felido.jpg" alt="Felidos" />
+            <span>FELIDOS</span>
           </div>
         </div>
-      </main>
+        <div class="boxcategory">
+          <div class="category canidos" id="pares">
+            <img src="../assets/canido.jpg" alt="Canidos" />
+            <span>CANIDOS</span>
+          </div>
+        </div>
+        <div class="boxcategory">
+          <div class="category reptiles" id="impares">
+            <img src="../assets/reptiles.jpg" alt="Reptiles" />
+            <span>REPTILES</span>
+          </div>
+        </div>
+        <div class="boxcategory">
+          <div class="category mustelidos" id="pares">
+            <img src="../assets/mustelido.jpg" alt="Mustelidos" />
+            <span>MUSTELIDOS</span>
+          </div>
+        </div>
+        <div class="boxcategory">
+          <div class="category leporidae" id="impares">
+            <img src="../assets/leporidae.jpg" alt="Leporidae" />
+            <span>LEPORIDAE</span>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -60,7 +54,7 @@
 <style scoped>
 @keyframes slideDown {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-75%);
     opacity: 0;
   }
   to {
@@ -70,7 +64,7 @@
 }
 @keyframes slideUp {
   from {
-    transform: translateY(100%);
+    transform: translateY(25%);
     opacity: 0;
   }
   to {
@@ -87,6 +81,12 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+main {
+  min-height: 810px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   font-family: Arial, sans-serif;
@@ -115,14 +115,10 @@ h1 {
   margin: 0;
 }
 
-main {
-  padding: 20px;
-}
-
 .all-animals {
   text-align: center;
   margin-bottom: 20px;
-  animation: slideLeft 1.4s ease-in-out forwards;
+  animation: slideLeft 2.5s ease-in-out forwards;
 }
 
 .categories {
@@ -159,10 +155,10 @@ main {
 
 #pares {
   margin-top: 70px;
-  animation: slideUp 1.4s ease-in-out forwards;
+  animation: slideUp 2.5s ease-in-out forwards;
 }
 #impares {
-  animation: slideDown 1.4s ease-in-out forwards;
+  animation: slideDown 2.5s ease-in-out forwards;
 }
 
 .boxanimals {
@@ -208,6 +204,10 @@ main {
 }
 
 @media (max-width: 480px) {
+  .container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
   #pares {
     margin-top: 0px;
   }
@@ -215,13 +215,13 @@ main {
     width: 350px;
   }
   .boxcategory:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 500ms;
     filter: brightness(140%);
   }
 
   .allanimals:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 500ms;
     filter: brightness(130%);
   }

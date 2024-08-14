@@ -1,54 +1,45 @@
 <script setup></script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNav">
-    <span class="navbar-text">
-      <img src="../assets/icons/Logo.png" alt="Lyon faczoopia logo" id="lyon" />
-    </span>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      id="navbar-toggler"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <RouterLink to="/" id="linkrouter">
-            <a class="nav-link" href="#">Home</a>
-          </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/counter" id="linkrouter">
-            <a class="nav-link" id="links" href="#">Counter</a>
-          </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/form" id="linkrouter">
-            <a class="nav-link" href="#">Form</a>
-          </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/animals" id="linkrouter">
-            <a class="nav-link" href="#">Animals</a>
-          </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/animals2" id="linkrouter">
-            <a class="nav-link" href="#">Animals2</a>
-          </RouterLink>
-        </li>
-      </ul>
-      <div class="ml-auto">
-        <RouterLink to="/" id="linkrouter">
-          <a class="nav-link" id="textzoo" href="#">Zootopia</a>
-        </RouterLink>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="myNav">
+    <div class="container-fluid">
+      <span class="navbar-text">
+        <img src="../assets/leonhome.png" alt="Lyon faczoopia logo" id="lyon" />
+      </span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/">Login</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/counter">Animals</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/form">Form</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/animals">Views</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/animals2">Filter</router-link>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item" id="zootopia">
+            <router-link class="nav-link" to="/">Zootopia</router-link>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -66,6 +57,9 @@
   height: 70px;
   width: 70px;
   margin-left: 20px;
+}
+#zootopia {
+  font-size: 30px;
 }
 
 .nav-item {
@@ -108,7 +102,10 @@ a:hover {
     margin-right: 25px !important;
   }
   #myNav {
-    height: 95px;
+    height: auto;
+  }
+  #zootopia {
+    display: none;
   }
 }
 </style>
