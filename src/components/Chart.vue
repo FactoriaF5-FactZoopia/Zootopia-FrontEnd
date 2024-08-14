@@ -2,7 +2,7 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "vue-chartjs";
 
-// Asegúrate de que los componentes necesarios están registrados.
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default {
@@ -11,34 +11,140 @@ export default {
     Pie,
   },
   data() {
-    return {
-      data: {
-        labels: ["Felids", "Canids", "Reptiles", "Mustelids", "Leporidae"],
-        datasets: [
-          {
-            backgroundColor: ["#41B883", "#153750", "#4ac6af", "#22bbb7", "#5ef58e"],
-            data: [30, 20, 80, 10, 20],
+  return {
+    animalCount: 0,
+    felineCount: 0,
+    canineCount: 0,
+    reptileCount: 0,
+    mustelidCount: 0,
+    leporidaeCount: 0,
+    data: {
+      labels: ["Felids", "Canids", "Reptiles", "Mustelids", "Leporidae"],
+      datasets: [
+        {
+          backgroundColor: ["#41B883", "#153750", "#4ac6af", "#22bbb7", "#5ef58e"],
+          data: [0, 0, 0, 0, 0],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 25,
+            },
+            color: 'black',
           },
-        ],
+        },
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            labels: {
-              font: {
-                size: 25
-              },
-              color: 'black'
-            }
-          }
+    },
+  };
+},
+methods: {
+  fetchAnimalCount() {
+    const username = 'flashTheRapidash';
+    const password = 'password';
+    const headers = new Headers();
+    headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
+
+
+    fetch('http://localhost:8080/api/v1/animals/count', { headers: headers })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      },
-    };
+        return response.json();
+      })
+      .then(data => {
+        this.animalCount = data;
+      })
+      .catch(error => {
+        console.error("Error fetching animal count:", error);
+      });
+
+
+    fetch('http://localhost:8080/api/v1/animals/countByType?animalType=Feline', { headers: headers })
+      .then(response => response.json())
+      .then(data => {
+        const felineCount = data;
+        this.felineCount = felineCount;
+
+
+        this.data.datasets[0].data[0] = felineCount;
+        this.updateChart();
+      })
+      .catch(error => console.error("Error fetching feline count:", error));
+
+
+    fetch('http://localhost:8080/api/v1/animals/countByType?animalType=Canine', { headers: headers })
+      .then(response => response.json())
+      .then(data => {
+        const canineCount = data;
+        this.canineCount = canineCount;
+
+
+        this.data.datasets[0].data[1] = canineCount;
+        this.updateChart();
+      })
+      .catch(error => console.error("Error fetching canine count:", error));
+
+
+    fetch('http://localhost:8080/api/v1/animals/countByType?animalType=Reptile', { headers: headers })
+      .then(response => response.json())
+      .then(data => {
+        const reptileCount = data;
+        this.reptileCount = reptileCount;
+
+
+        this.data.datasets[0].data[2] = reptileCount;
+        this.updateChart();
+      })
+      .catch(error => console.error("Error fetching reptile count:", error));
+
+
+
+    fetch('http://localhost:8080/api/v1/animals/countByType?animalType=Mustelide', { headers: headers })
+      .then(response => response.json())
+      .then(data => {
+        const mustelidCount = data;
+        this.mustelidCount = mustelidCount;
+
+
+        this.data.datasets[0].data[3] = mustelidCount;
+        this.updateChart();
+      })
+      .catch(error => console.error("Error fetching mustelid count:", error));
+
+
+    fetch('http://localhost:8080/api/v1/animals/countByType?animalType=Leporidae', { headers: headers })
+      .then(response => response.json())
+      .then(data => {
+        const leporidaeCount = data;
+        this.leporidaeCount = leporidaeCount;
+
+
+        this.data.datasets[0].data[4] = leporidaeCount;
+        this.updateChart();
+      })
+      .catch(error => console.error("Error fetching leporidae count:", error));
   },
+  updateChart() {
+    this.$nextTick(() => {
+
+      this.$refs.chart.chart.update();
+    });
+  }
+},
+
+mounted() {
+  this.fetchAnimalCount();
+}
 };
 </script>
+
 <template>
   <main>
     <div id="boxCont">
@@ -47,13 +153,13 @@ export default {
         <h2 class="wave">TOTAL</h2>
       </div>
       <div id="boxAnimals">
-        <h2 class="bord">120</h2>
-        <h2 class="wave">120</h2>
+        <h2 class="bord">{{ animalCount }}</h2>
+        <h2 class="wave">{{ animalCount }}</h2>
       </div>
     </div>
     <div id="boxChart">
       <div id="chart">
-        <Pie :data="data" :options="options" />
+        <Pie ref="chart" :data="data" :options="options" />
       </div>
     </div>
   </main>
