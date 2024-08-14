@@ -6,9 +6,24 @@ import Footer from "./components/Footer.vue";
 
 <template>
   <Navbar> </Navbar>
-
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <Footer> </Footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  background-image: url("../src/assets/homeLion2.png");
+  background-size: 100%;
+  object-fit: cover;
+}
+@media (max-width: 480px) {
+  main {
+    background-image: url("");
+  }
+}
+</style>

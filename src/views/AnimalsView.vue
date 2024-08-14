@@ -5,12 +5,6 @@ import Cards from "@/components/Cards.vue";
 <template>
   <main>
     <Cards />
-    <div id="contmaquina">
-      <span id="span1">TOTAL ANIMALS</span>
-    </div>
-    <div id="contmaquina2">
-      <span id="span2">120</span>
-    </div>
   </main>
 </template>
 <style scoped>

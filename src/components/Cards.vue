@@ -1,165 +1,244 @@
-<script setup>
-</script>
+<script setup></script>
+
 <template>
-  <div id = "container">
-    <div class="card-complete">
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="../assets/imgAnimal/cat1.jpg" alt="Card image cap">
-      <div class="card-body">
-        <div class="buttones">
-          <button> Nombre</button>
-          <button>.</button>
-          <button> Tipo</button>
-          <button> .</button>
-          <button> Familia a la que pertece</button>
-          <button> .</button>
-          <button> Genero</button>
-          <button> .</button>
-          <button> Fecha de ingreso</button>
-          <button> .</button>
-
-        </div>
-      <div id = "botton">
-          <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
-          <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
-      </div>
-      </div>
-      </div>
-    </div>
+  <main>
+    <div id="container">
       <div class="card-complete">
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="../assets/imgAnimal/Canids.jpg" alt="Card image cap">
-      <div class="card-body">
-        <div class="buttones">
-          <button> Nombre</button>
-          <button>.</button>
-          <button> Tipo</button>
-          <button> .</button>
-          <button> Familia a la que pertece</button>
-          <button> .</button>
-          <button> Genero</button>
-          <button> .</button>
-          <button> Fecha de ingreso</button>
-          <button> .</button>
-        </div>
-        <div id = "botton">
-          <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
-          <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
-      </div>
-      </div>
-      </div>
-    </div>
-    <div class="card-complete">
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="../assets/imgAnimal/reptiles.jpg" alt="Card image cap">
-      <div class="card-body">
-        <div class="buttones">
-          <button> Nombre</button>
-          <button>.</button>
-          <button> Tipo</button>
-          <button> .</button>
-          <button> Familia a la que pertece</button>
-          <button> .</button>
-          <button> Genero</button>
-          <button> .</button>
-          <button> Fecha de ingreso</button>
-          <button> .</button>
-        </div>
-        <div id = "botton">
-          <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
-          <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
-      </div>
-      </div>
-      </div>
-    </div>
-    <div class="card-complete">
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="../assets/imgAnimal/Mustelids.jpg" alt="Card image cap">
-      <div class="card-body">
-        <div class="buttones">
-          <button> Nombre</button>
-          <button>.</button>
-          <button> Tipo</button>
-          <button> .</button>
-          <button> Familia a la que pertece</button>
-          <button> .</button>
-          <button> Genero</button>
-          <button> .</button>
-          <button> Fecha de ingreso</button>
-          <button> .</button>
-        </div>
-        <div id = "botton">
-          <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
-          <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
-      </div>
-      </div>
-      </div>
-    </div>
-    <div class="card-complete">
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="../assets/imgAnimal/leporidae.jpg" alt="Card image cap">
-      <div class="card-body">
-     
-        <div class="buttones">
-          <button> Name</button>
-          <button>.</button>
-          <button> Type</button>
-          <button> .</button>
-          <button> Family</button>
-          <button> .</button>
-          <button> Gender</button>
-          <button> .</button>
-          <button> Date</button>
-          <button> .</button>
-        </div>   <div id = "botton">
-          <a href="#" id="btn" class="btn btn-primary" ><img class="bin" src="../assets/icons/edit.png" alt="Card image cap"> </a>
-          <a href="#" id="btn" class="btn btn-danger" >   <img class="bin" src="../assets/icons/bin.png" alt="Card image cap"> </a>
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="../assets/cat1.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="buttones">
+              <button>Nombre</button>
+              <button>.</button>
+              <button>Tipo</button>
+              <button>.</button>
+              <button>Familia a la que pertece</button>
+              <button>.</button>
+              <button>Genero</button>
+              <button>.</button>
+              <button>Fecha de ingreso</button>
+              <button>.</button>
+            </div>
+            <div id="botton">
+              <a href="#" id="btn" class="btn btn-primary"
+                ><img
+                  class="bin"
+                  src="../assets/icons/edit.png"
+                  alt="Card image cap"
+                />
+              </a>
+              <a href="#" id="btn" class="btn btn-danger">
+                <img
+                  class="bin"
+                  src="../assets/icons/bin.png"
+                  alt="Card image cap"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="card-complete">
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="../assets/Canids.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="buttones">
+              <button>Nombre</button>
+              <button>.</button>
+              <button>Tipo</button>
+              <button>.</button>
+              <button>Familia a la que pertece</button>
+              <button>.</button>
+              <button>Genero</button>
+              <button>.</button>
+              <button>Fecha de ingreso</button>
+              <button>.</button>
+            </div>
+            <div id="botton">
+              <a href="#" id="btn" class="btn btn-primary"
+                ><img
+                  class="bin"
+                  src="../assets/icons/edit.png"
+                  alt="Card image cap"
+                />
+              </a>
+              <a href="#" id="btn" class="btn btn-danger">
+                <img
+                  class="bin"
+                  src="../assets/icons/bin.png"
+                  alt="Card image cap"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-complete">
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="../assets/reptiles.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="buttones">
+              <button>Nombre</button>
+              <button>.</button>
+              <button>Tipo</button>
+              <button>.</button>
+              <button>Familia a la que pertece</button>
+              <button>.</button>
+              <button>Genero</button>
+              <button>.</button>
+              <button>Fecha de ingreso</button>
+              <button>.</button>
+            </div>
+            <div id="botton">
+              <a href="#" id="btn" class="btn btn-primary"
+                ><img
+                  class="bin"
+                  src="../assets/icons/edit.png"
+                  alt="Card image cap"
+                />
+              </a>
+              <a href="#" id="btn" class="btn btn-danger">
+                <img
+                  class="bin"
+                  src="../assets/icons/bin.png"
+                  alt="Card image cap"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-complete">
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="../assets/Mustelids.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="buttones">
+              <button>Nombre</button>
+              <button>.</button>
+              <button>Tipo</button>
+              <button>.</button>
+              <button>Familia a la que pertece</button>
+              <button>.</button>
+              <button>Genero</button>
+              <button>.</button>
+              <button>Fecha de ingreso</button>
+              <button>.</button>
+            </div>
+            <div id="botton">
+              <a href="#" id="btn" class="btn btn-primary"
+                ><img
+                  class="bin"
+                  src="../assets/icons/edit.png"
+                  alt="Card image cap"
+                />
+              </a>
+              <a href="#" id="btn" class="btn btn-danger">
+                <img
+                  class="bin"
+                  src="../assets/icons/bin.png"
+                  alt="Card image cap"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-complete">
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="../assets/leporidae.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="buttones">
+              <button>Name</button>
+              <button>.</button>
+              <button>Type</button>
+              <button>.</button>
+              <button>Family</button>
+              <button>.</button>
+              <button>Gender</button>
+              <button>.</button>
+              <button>Date</button>
+              <button>.</button>
+            </div>
+            <div id="botton">
+              <a href="#" id="btn" class="btn btn-primary"
+                ><img
+                  class="bin"
+                  src="../assets/icons/edit.png"
+                  alt="Card image cap"
+                />
+              </a>
+              <a href="#" id="btn" class="btn btn-danger">
+                <img
+                  class="bin"
+                  src="../assets/icons/bin.png"
+                  alt="Card image cap"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
-<style scoped>
 
-#botton{
+<style scoped>
+main {
+  min-height: 810px;
+}
+
+#botton {
   display: flex;
   align-items: center;
 }
-
-
-#container{
+#container {
   display: flex;
-  
 }
-.card-complete{
+.card-complete {
   margin: 10px;
 }
-.card{
+.card {
   background-color: #153750;
 }
-.buttones{
+.buttones {
   display: grid;
   margin-bottom: 20px;
 }
-button{
+button {
   margin: 5px;
   text-align: left;
 }
-
-.bin{
+.bin {
   width: 25px;
 }
 #card-title {
-    text-align: center;
+  text-align: center;
 }
 #btn {
-    margin-left: 20px;
+  margin-left: 20px;
 }
-
-#card-img-top{
+#card-img-top {
   width: 50px;
   height: 70px;
 }
-
 </style>
