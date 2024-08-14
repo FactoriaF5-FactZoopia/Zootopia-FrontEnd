@@ -1,8 +1,10 @@
 <script setup>
 import Cards from "@/components/Cards.vue";
+import Navbar from "@/components/Navbar.vue";
 </script>
 
 <template>
+  <Navbar></Navbar>
   <main>
     <Cards />
   </main>

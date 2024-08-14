@@ -25,9 +25,9 @@ const router = createRouter({
       component: () => import("../views/AnimalsView.vue"),
     },
     {
-      path: "/animals2",
-      name: "animals2",
-      component: () => import("../views/Animals2.vue"),
+      path: "/animalsFilter",
+      name: "animalsFilter",
+      component: () => import("../views/AnimalsFilter.vue"),
     },
   ],
 });

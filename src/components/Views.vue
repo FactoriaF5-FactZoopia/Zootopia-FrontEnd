@@ -5,14 +5,20 @@
     <div class="container">
       <div class="all-animals">
         <div class="boxanimals">
-          <div class="allanimals">
-            <img id="imganimals" src="../assets/allanimals.jpg" alt="Animals" />
-            <div id="contSpan">
-              <div id="spanAnimals">
-                <span id="animalsspan">ALL &nbsp ANIMALS</span>
+          <RouterLink style="text-decoration: none" to="/animals"
+            ><div class="allanimals">
+              <img
+                id="imganimals"
+                src="../assets/allanimals.jpg"
+                alt="Animals"
+              />
+              <div id="contSpan">
+                <div id="spanAnimals">
+                  <span id="animalsspan">ALL &nbsp ANIMALS</span>
+                </div>
               </div>
-            </div>
-          </div>
+            </div></RouterLink
+          >
         </div>
       </div>
       <div class="categories">

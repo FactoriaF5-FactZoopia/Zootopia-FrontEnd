@@ -123,7 +123,7 @@ main {
 
 .btn-primary {
   background-color: #153750 !important;
-  width: 98%;
+  width: 95%;
 }
 
 .form-control {
@@ -138,7 +138,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45px;
+  height: 55px;
   border-radius: 5px;
   transition: background-position 1.5s linear;
 }

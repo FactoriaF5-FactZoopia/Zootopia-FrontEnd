@@ -1,202 +1,42 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+
+const isFlipped = ref(false);
+const isVisible = ref(false);
+
+function handleFlip() {
+  isFlipped.value = !isFlipped.value;
+}
+
+onMounted(() => {
+  // Añade un pequeño retraso para asegurarte de que la transición se vea
+  setTimeout(() => {
+    isVisible.value = true;
+  }, 100);
+});
+</script>
 
 <template>
   <main>
-    <div id="container">
-      <div class="card-complete">
-        <div class="card" style="width: 18rem">
-          <img
-            class="card-img-top"
-            src="../assets/cat1.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <div class="buttones">
-              <button>Nombre</button>
-              <button>.</button>
-              <button>Tipo</button>
-              <button>.</button>
-              <button>Familia a la que pertece</button>
-              <button>.</button>
-              <button>Genero</button>
-              <button>.</button>
-              <button>Fecha de ingreso</button>
-              <button>.</button>
+    <div id="border">
+      <div id="boxCard" :class="{ visible: isVisible }">
+        <div id="flip" :class="{ flipped: isFlipped }">
+          <div class="flipper">
+            <div id="boxFlip" class="front">
+              <div id="boxImg">
+                <div id="img">
+                  <img src="../assets/canido.jpg" id="imagen" alt="" />
+                </div>
+              </div>
             </div>
-            <div id="botton">
-              <a href="#" id="btn" class="btn btn-primary"
-                ><img
-                  class="bin"
-                  src="../assets/icons/edit.png"
-                  alt="Card image cap"
-                />
-              </a>
-              <a href="#" id="btn" class="btn btn-danger">
-                <img
-                  class="bin"
-                  src="../assets/icons/bin.png"
-                  alt="Card image cap"
-                />
-              </a>
-            </div>
+            <div id="boxInfo"></div>
+            <div id="back" class="back"></div>
           </div>
         </div>
-      </div>
-      <div class="card-complete">
-        <div class="card" style="width: 18rem">
-          <img
-            class="card-img-top"
-            src="../assets/Canids.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <div class="buttones">
-              <button>Nombre</button>
-              <button>.</button>
-              <button>Tipo</button>
-              <button>.</button>
-              <button>Familia a la que pertece</button>
-              <button>.</button>
-              <button>Genero</button>
-              <button>.</button>
-              <button>Fecha de ingreso</button>
-              <button>.</button>
-            </div>
-            <div id="botton">
-              <a href="#" id="btn" class="btn btn-primary"
-                ><img
-                  class="bin"
-                  src="../assets/icons/edit.png"
-                  alt="Card image cap"
-                />
-              </a>
-              <a href="#" id="btn" class="btn btn-danger">
-                <img
-                  class="bin"
-                  src="../assets/icons/bin.png"
-                  alt="Card image cap"
-                />
-              </a>
-            </div>
-          </div>
+        <div id="moreInfo">
+          <button id="buttonInfo" @click="handleFlip">INFO</button>
         </div>
-      </div>
-      <div class="card-complete">
-        <div class="card" style="width: 18rem">
-          <img
-            class="card-img-top"
-            src="../assets/reptiles.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <div class="buttones">
-              <button>Nombre</button>
-              <button>.</button>
-              <button>Tipo</button>
-              <button>.</button>
-              <button>Familia a la que pertece</button>
-              <button>.</button>
-              <button>Genero</button>
-              <button>.</button>
-              <button>Fecha de ingreso</button>
-              <button>.</button>
-            </div>
-            <div id="botton">
-              <a href="#" id="btn" class="btn btn-primary"
-                ><img
-                  class="bin"
-                  src="../assets/icons/edit.png"
-                  alt="Card image cap"
-                />
-              </a>
-              <a href="#" id="btn" class="btn btn-danger">
-                <img
-                  class="bin"
-                  src="../assets/icons/bin.png"
-                  alt="Card image cap"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-complete">
-        <div class="card" style="width: 18rem">
-          <img
-            class="card-img-top"
-            src="../assets/Mustelids.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <div class="buttones">
-              <button>Nombre</button>
-              <button>.</button>
-              <button>Tipo</button>
-              <button>.</button>
-              <button>Familia a la que pertece</button>
-              <button>.</button>
-              <button>Genero</button>
-              <button>.</button>
-              <button>Fecha de ingreso</button>
-              <button>.</button>
-            </div>
-            <div id="botton">
-              <a href="#" id="btn" class="btn btn-primary"
-                ><img
-                  class="bin"
-                  src="../assets/icons/edit.png"
-                  alt="Card image cap"
-                />
-              </a>
-              <a href="#" id="btn" class="btn btn-danger">
-                <img
-                  class="bin"
-                  src="../assets/icons/bin.png"
-                  alt="Card image cap"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-complete">
-        <div class="card" style="width: 18rem">
-          <img
-            class="card-img-top"
-            src="../assets/leporidae.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <div class="buttones">
-              <button>Name</button>
-              <button>.</button>
-              <button>Type</button>
-              <button>.</button>
-              <button>Family</button>
-              <button>.</button>
-              <button>Gender</button>
-              <button>.</button>
-              <button>Date</button>
-              <button>.</button>
-            </div>
-            <div id="botton">
-              <a href="#" id="btn" class="btn btn-primary"
-                ><img
-                  class="bin"
-                  src="../assets/icons/edit.png"
-                  alt="Card image cap"
-                />
-              </a>
-              <a href="#" id="btn" class="btn btn-danger">
-                <img
-                  class="bin"
-                  src="../assets/icons/bin.png"
-                  alt="Card image cap"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
+        <div id="actions"></div>
       </div>
     </div>
   </main>
@@ -205,40 +45,153 @@
 <style scoped>
 main {
   min-height: 810px;
-}
-
-#botton {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-#container {
+#border {
+  width: 280px;
+  height: 505px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-size: 200% auto;
 }
-.card-complete {
-  margin: 10px;
+#border:hover {
+  width: 300px;
+  height: 560px;
+  transform: scale(1.05);
+  transition: 500ms;
+  filter: brightness(110%);
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    white,
+    rgb(63, 179, 126),
+    white,
+    rgba(21, 55, 80, 1),
+    white
+  );
+  background-position: 100% 50%;
+  animation: moveGradient 1s linear infinite;
 }
-.card {
-  background-color: #153750;
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
-.buttones {
-  display: grid;
-  margin-bottom: 20px;
+#boxCard {
+  width: 290px;
+  height: 550px;
+
+  background: rgb(63, 179, 126);
+  background: linear-gradient(
+    0deg,
+    rgba(21, 55, 80, 1) 0%,
+    rgba(63, 179, 126, 1) 100%
+  );
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 5s ease-in-out;
 }
-button {
-  margin: 5px;
-  text-align: left;
+#boxCard:hover {
+  /*  transform: scale(1.05);
+  transition: 500ms;
+  filter: brightness(110%); */
+  background: rgb(63, 179, 126);
+  background: radial-gradient(
+    circle,
+    rgba(63, 179, 126, 1) 0%,
+    rgba(21, 55, 80, 1) 100%
+  );
 }
-.bin {
-  width: 25px;
+#boxCard.visible {
+  opacity: 1;
 }
-#card-title {
-  text-align: center;
+
+#boxFlip {
+  width: 100%;
+  height: 400px;
 }
-#btn {
-  margin-left: 20px;
+#boxImg {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
 }
-#card-img-top {
-  width: 50px;
+#img {
+  width: 85%;
+  height: 250px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+#imagen {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+#boxInfo {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+}
+#moreInfo {
+  width: 100%;
   height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#actions {
+  width: 100%;
+  height: 80px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#flip {
+  perspective: 1000px; /* Necesario para el efecto 3D */
+  width: 100%;
+  height: 400px;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-radius: 10px;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: red;
+}
+
+.flipped .flipper {
+  transform: rotateY(180deg);
 }
 </style>
