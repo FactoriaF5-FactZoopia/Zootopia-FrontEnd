@@ -1,7 +1,6 @@
 <script setup></script>
-
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="myNav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="myNavLogin">
     <div class="container-fluid">
       <span class="navbar-text">
         <img src="../assets/leonhome.png" alt="Lyon faczoopia logo" id="lyon" />
@@ -14,36 +13,26 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        id="navbar-toggler"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/counter">Animals</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/form">Form</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/animalsFilter"
-              >Filter</router-link
-            >
+            <router-link class="nav-link" to="/">Login</router-link>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item" id="zootopia">
-            <router-link class="nav-link" to="/counter">Zootopia</router-link>
+            <router-link class="nav-link" to="/">Zootopia</router-link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
-
-<style>
-#myNav {
+<style scoped>
+#myNavLogin {
   background-color: #3fb37e !important;
   color: black !important;
   text-decoration: none !important;

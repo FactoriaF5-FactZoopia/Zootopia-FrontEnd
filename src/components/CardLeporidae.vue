@@ -28,7 +28,7 @@ onMounted(() => {
               <div id="boxFlip" class="front">
                 <div id="boxImg">
                   <div id="img">
-                    <img src="../assets/canido.jpg" id="imagen" alt="" />
+                    <img src="../assets/leporidae.jpg" id="imagen" alt="" />
                   </div>
                 </div>
 

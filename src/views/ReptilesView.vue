@@ -1,12 +1,12 @@
 <script setup>
-import Cards from "@/components/Cards.vue";
+import CardReptiles from "@/components/CardReptiles.vue";
 import Navbar from "@/components/Navbar.vue";
 </script>
 
 <template>
   <Navbar></Navbar>
   <main>
-    <Cards />
+    <CardReptiles></CardReptiles>
   </main>
 </template>
 <style scoped>

@@ -34,11 +34,13 @@
           <i class="mdi mdi-lock"></i>
         </div>
         <span class="alert">Invalid Credentials</span>
-        <div id="boxButton">
-          <button type="button" class="log-btn">
-            <i class="mdi mdi-account"></i> LOGIN
-          </button>
-        </div>
+        <RouterLink to="/counter"
+          ><div id="boxButton">
+            <button type="button" class="log-btn">
+              <i class="mdi mdi-account"></i> LOGIN
+            </button>
+          </div></RouterLink
+        >
       </div>
     </div>
   </main>
@@ -270,7 +272,7 @@ h1 {
 }
 
 .form-control:hover {
-  color: #fff !important;
+  color: black !important;
   background-color: white;
   border-color: #fff !important;
   outline: none;

@@ -11,7 +11,7 @@ const form = ref({
 
 const errorMessage = ref("");
 
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
   event.preventDefault();
   if (
     form.value.name &&
@@ -20,26 +20,46 @@ const handleSubmit = (event) => {
     form.value.gender &&
     form.value.date
   ) {
-    errorMessage.value = "";
-    alert("Form submitted successfully!");
-    console.log("Form submitted:", form.value);
+    try {
+      errorMessage.value = "";
+
+      const response = await fetch("http://localhost:8080/api/v1/animals", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa("flashTheRapidash:password"), // Reemplaza con las credenciales correctas
+        },
+        body: JSON.stringify(form.value),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert("Animal created successfully!");
+        console.log("Response:", data);
+      } else {
+        throw new Error("Failed to create the animal");
+      }
+    } catch (error) {
+      console.error("There was an error creating the animal:", error);
+      errorMessage.value = "Failed to create the animal.";
+    }
   } else {
     errorMessage.value = "All fields are required.";
     alert(errorMessage.value);
   }
 };
 </script>
-
 <template>
   <main>
     <div class="container">
-      <form class="form">
+      <form class="form" @submit="handleSubmit">
         <div class="form-group">
           <label for="validationDefault01" class="form-label">Name</label>
           <input
             type="text"
             class="form-control"
             id="validationDefault01"
+            v-model="form.name"
             required
           />
         </div>
@@ -49,12 +69,13 @@ const handleSubmit = (event) => {
             type="text"
             class="form-control"
             id="validationDefault02"
+            v-model="form.type"
             required
           />
         </div>
         <div class="form-group">
           <label for="validationDefault03" class="form-label">Family</label>
-          <select id="dropdown" class="form-control">
+          <select id="dropdown" class="form-control" v-model="form.family">
             <option value="felines">Felines</option>
             <option value="canines">Canines</option>
             <option value="reptiles">Reptiles</option>
@@ -64,7 +85,7 @@ const handleSubmit = (event) => {
         </div>
         <div class="form-group">
           <label for="validationDefault04" class="form-label">Gender</label>
-          <select id="dropdown" class="form-control">
+          <select id="dropdown" class="form-control" v-model="form.gender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -75,6 +96,7 @@ const handleSubmit = (event) => {
             type="date"
             class="form-control"
             id="validationDefault05"
+            v-model="form.date"
             required
           />
         </div>
@@ -83,6 +105,7 @@ const handleSubmit = (event) => {
             <button class="btn btn-primary" type="submit">Add Animal</button>
           </div>
         </div>
+        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
       </form>
     </div>
   </main>
@@ -123,7 +146,7 @@ main {
 
 .btn-primary {
   background-color: #153750 !important;
-  width: 98%;
+  width: 95%;
 }
 
 .form-control {
@@ -138,7 +161,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45px;
+  height: 55px;
   border-radius: 5px;
   transition: background-position 1.5s linear;
 }

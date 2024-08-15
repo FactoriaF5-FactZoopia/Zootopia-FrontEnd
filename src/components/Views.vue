@@ -5,47 +5,63 @@
     <div class="container">
       <div class="all-animals">
         <div class="boxanimals">
-          <div class="allanimals">
-            <img id="imganimals" src="../assets/allanimals.jpg" alt="Animals" />
-            <div id="contSpan">
-              <div id="spanAnimals">
-                <span id="animalsspan">ALL &nbsp ANIMALS</span>
+          <RouterLink style="text-decoration: none" to="/animals"
+            ><div class="allanimals">
+              <img
+                id="imganimals"
+                src="../assets/allanimals.jpg"
+                alt="Animals"
+              />
+              <div id="contSpan">
+                <div id="spanAnimals">
+                  <span id="animalsspan">ALL &nbsp ANIMALS</span>
+                </div>
               </div>
-            </div>
-          </div>
+            </div></RouterLink
+          >
         </div>
       </div>
       <div class="categories">
-        <div class="boxcategory">
-          <div class="category felidos" id="impares">
-            <img src="../assets/felido.jpg" alt="Felidos" />
-            <span>FELIDOS</span>
-          </div>
-        </div>
-        <div class="boxcategory">
-          <div class="category canidos" id="pares">
-            <img src="../assets/canido.jpg" alt="Canidos" />
-            <span>CANIDOS</span>
-          </div>
-        </div>
-        <div class="boxcategory">
-          <div class="category reptiles" id="impares">
-            <img src="../assets/reptiles.jpg" alt="Reptiles" />
-            <span>REPTILES</span>
-          </div>
-        </div>
-        <div class="boxcategory">
-          <div class="category mustelidos" id="pares">
-            <img src="../assets/mustelido.jpg" alt="Mustelidos" />
-            <span>MUSTELIDOS</span>
-          </div>
-        </div>
-        <div class="boxcategory">
-          <div class="category leporidae" id="impares">
-            <img src="../assets/leporidae.jpg" alt="Leporidae" />
-            <span>LEPORIDAE</span>
-          </div>
-        </div>
+        <RouterLink style="text-decoration: none" to="/felids"
+          ><div class="boxcategory">
+            <div class="category felidos" id="impares">
+              <img src="../assets/felido.jpg" alt="Felidos" />
+              <span>FELIDS</span>
+            </div>
+          </div></RouterLink
+        >
+        <RouterLink style="text-decoration: none" to="/canids"
+          ><div class="boxcategory">
+            <div class="category canidos" id="pares">
+              <img src="../assets/canido.jpg" alt="Canidos" />
+              <span>CANIDS</span>
+            </div>
+          </div></RouterLink
+        >
+        <RouterLink style="text-decoration: none" to="/reptils"
+          ><div class="boxcategory">
+            <div class="category reptiles" id="impares">
+              <img src="../assets/reptiles.jpg" alt="Reptiles" />
+              <span>REPTILS</span>
+            </div>
+          </div></RouterLink
+        >
+        <RouterLink style="text-decoration: none" to="/mustelids"
+          ><div class="boxcategory">
+            <div class="category mustelidos" id="pares">
+              <img src="../assets/mustelido.jpg" alt="Mustelidos" />
+              <span>MUSTELIDS</span>
+            </div>
+          </div></RouterLink
+        >
+        <RouterLink style="text-decoration: none" to="/leporidae"
+          ><div class="boxcategory">
+            <div class="category leporidae" id="impares">
+              <img src="../assets/leporidae.jpg" alt="Leporidae" />
+              <span>LEPORIDAES</span>
+            </div>
+          </div></RouterLink
+        >
       </div>
     </div>
   </main>
@@ -212,6 +228,9 @@ h1 {
     margin-top: 0px;
   }
   #imganimals {
+    width: 350px;
+  }
+  .allanimals {
     width: 350px;
   }
   .boxcategory:hover {
