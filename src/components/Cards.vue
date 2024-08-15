@@ -81,7 +81,7 @@ onMounted(() => {
                     <div id="animalType">ANIMAL TYPE</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="ResultanimalType">{{ animal.animalsType }}</div>
+                    <div id="ResultanimalType">{{ animal.animalType }}</div>
                   </div>
                   <div id="boxInformation">
                     <div id="specie">SPECIE</div>
