@@ -46,6 +46,12 @@
   </main>
 </template>
 
+<script setup>
+
+
+
+</script>
+
 <style scoped>
 main {
   display: inline-grid;
