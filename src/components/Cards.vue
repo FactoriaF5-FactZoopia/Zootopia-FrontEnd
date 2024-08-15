@@ -2,19 +2,21 @@
 import { ref, onMounted } from "vue";
 
 const isVisible = ref(false);
-
 const flippedCards = ref([]);
-
 const animals = ref([]);
+
+const animalImages = {
+  Feline: "../assets/felido.jpg",
+  Canine: "../assets/canido.jpg",
+  Reptile: "../assets/reptiles.jpg",
+  Mustelide: "../assets/mustelido.jpg",
+  Leporidae: "../assets/leporidae.jpg",
+};
 
 const username = "flash@gmail.com";
 const password = "password";
 const headers = new Headers();
 headers.set("Authorization", "Basic " + btoa(username + ":" + password));
-
-function handleFlip(index) {
-  flippedCards.value[index] = !flippedCards.value[index];
-}
 
 async function fetchAnimals() {
   try {
@@ -29,11 +31,31 @@ async function fetchAnimals() {
 
     const data = await response.json();
     animals.value = data;
-
     flippedCards.value = new Array(data.length).fill(false);
   } catch (error) {
     console.error("Error fetching animals:", error);
   }
+}
+
+async function deleteAnimal(id, index) {
+  try {
+    const response = await fetch(`http://localhost:8080/api/v1/animals/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete animal");
+    }
+
+    animals.value.splice(index, 1);
+    flippedCards.value.splice(index, 1);
+  } catch (error) {
+    console.error("Error deleting animal:", error);
+  }
+}
+
+function handleFlip(index) {
+  flippedCards.value[index] = !flippedCards.value[index];
 }
 
 onMounted(() => {
@@ -105,7 +127,8 @@ onMounted(() => {
               <img
                 class="bin"
                 src="../assets/borrarAnimal.png"
-                alt="Card image cap"
+                alt="Delete icon"
+                @click="deleteAnimal(animal.id, index)"
               />
             </div>
           </div>

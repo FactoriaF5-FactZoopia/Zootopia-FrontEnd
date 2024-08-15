@@ -2,7 +2,6 @@
 import { ref, onMounted } from "vue";
 
 const isVisible = ref(false);
-
 const flippedCards = ref([]);
 const animals = ref([]);
 
@@ -29,6 +28,23 @@ async function fetchAnimalsByType(animalType) {
     flippedCards.value = new Array(data.length).fill(false);
   } catch (error) {
     console.error("Error fetching animals:", error);
+  }
+}
+
+async function deleteAnimal(id, index) {
+  try {
+    const response = await fetch(`http://localhost:8080/api/v1/animals/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete animal");
+    }
+
+    animals.value.splice(index, 1);
+    flippedCards.value.splice(index, 1);
+  } catch (error) {
+    console.error("Error deleting animal:", error);
   }
 }
 
@@ -106,6 +122,7 @@ onMounted(() => {
                 class="bin"
                 src="../assets/borrarAnimal.png"
                 alt="Card image cap"
+                @click="deleteAnimal(animal.id, index)"
               />
             </div>
           </div>

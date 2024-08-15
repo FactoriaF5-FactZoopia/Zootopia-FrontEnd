@@ -32,6 +32,23 @@ async function fetchAnimalsByType(animalType) {
   }
 }
 
+async function deleteAnimal(id, index) {
+  try {
+    const response = await fetch(`http://localhost:8080/api/v1/animals/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete animal");
+    }
+
+    animals.value.splice(index, 1);
+    flippedCards.value.splice(index, 1);
+  } catch (error) {
+    console.error("Error deleting animal:", error);
+  }
+}
+
 function handleFlip(index) {
   flippedCards.value[index] = !flippedCards.value[index];
 }
@@ -106,6 +123,7 @@ onMounted(() => {
                 class="bin"
                 src="../assets/borrarAnimal.png"
                 alt="Card image cap"
+                @click="deleteAnimal(animal.id, index)"
               />
             </div>
           </div>

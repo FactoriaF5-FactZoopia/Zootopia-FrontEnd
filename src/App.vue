@@ -22,7 +22,7 @@ main {
 }
 @media (max-width: 480px) {
   main {
-    background-image: url("");
+    background-image: url("../src/assets/fondoresponsive.png");
   }
 }
 </style>
