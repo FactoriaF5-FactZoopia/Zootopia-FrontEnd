@@ -45,7 +45,7 @@ export default {
 },
 methods: {
   fetchAnimalCount() {
-    const username = 'flashTheRapidash';
+    const username = 'flash@gmail.com';
     const password = 'password';
     const headers = new Headers();
     headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
@@ -55,14 +55,18 @@ methods: {
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
+          console.log("Is not connecting!!!")
         }
         return response.json();
+        console.log("WE DID IT!");
       })
       .then(data => {
         this.animalCount = data;
       })
       .catch(error => {
         console.error("Error fetching animal count:", error);
+        console.log("Error, why");
+        
       });
 
 
