@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 const form = ref({
   name: "",
-  type: "",
+  type: "", // Asegúrate de que estos valores coincidan con los valores que espera el backend
   family: "",
   gender: "",
   date: "",
@@ -13,31 +13,67 @@ const errorMessage = ref("");
 
 const handleSubmit = async (event) => {
   event.preventDefault();
+
+  // Mapeo del género a un solo carácter
+  const genderChar = form.value.gender === "Male" ? "M" : "F";
+
+  // Mapeo del tipo de animal a los valores esperados por el backend con la primera letra en mayúscula
+  const animalTypeMap = {
+    Feline: "Feline",
+    Canine: "Canine",
+    Reptile: "Reptile",
+    Mustelide: "Mustelide",
+    Leporidae: "Leporidae",
+  };
+  const animalType = animalTypeMap[form.value.type] || "";
+
   if (
     form.value.name &&
-    form.value.type &&
+    animalType &&
     form.value.family &&
-    form.value.gender &&
+    genderChar &&
     form.value.date
   ) {
     try {
       errorMessage.value = "";
 
-      const response = await fetch("http://localhost:8080/api/v1/animals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Basic " + btoa("flashTheRapidash:password"), // Reemplaza con las credenciales correctas
-        },
-        body: JSON.stringify(form.value),
+      const username = "flash@gmail.com";
+      const password = "password";
+      const headers = new Headers();
+      headers.set("Authorization", "Basic " + btoa(username + ":" + password));
+      headers.set("Content-Type", "application/json");
+
+      // Verifica los valores antes de enviarlos
+      console.log("Form Data:", {
+        name: form.value.name,
+        animalsType: animalType, // Enviar 'animalsType' en lugar de 'animalType'
+        specie: form.value.family,
+        gender: genderChar, // Enviar 'M' o 'F'
+        date: form.value.date,
       });
+
+      const response = await fetch(
+        "http://localhost:8080/api/v1/animals/create",
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({
+            name: form.value.name,
+            animalsType: animalType, // Enviar 'animalsType' en lugar de 'animalType'
+            specie: form.value.family,
+            gender: genderChar, // Enviar 'M' o 'F'
+            date: form.value.date,
+          }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
         alert("Animal created successfully!");
         console.log("Response:", data);
       } else {
-        throw new Error("Failed to create the animal");
+        const errorData = await response.json();
+        throw new Error(`Failed to create the animal: ${errorData.message}`);
       }
     } catch (error) {
       console.error("There was an error creating the animal:", error);
@@ -49,6 +85,7 @@ const handleSubmit = async (event) => {
   }
 };
 </script>
+
 <template>
   <main>
     <div class="container">
@@ -63,25 +100,26 @@ const handleSubmit = async (event) => {
             required
           />
         </div>
+
         <div class="form-group">
           <label for="validationDefault02" class="form-label">Type</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validationDefault02"
-            v-model="form.type"
-            required
-          />
+          <select id="dropdown" class="form-control" v-model="form.type">
+            <option value="Feline">Feline</option>
+            <option value="Canine">Canine</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Mustelide">Mustelide</option>
+            <option value="Leporidae">Leporidae</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="validationDefault03" class="form-label">Family</label>
-          <select id="dropdown" class="form-control" v-model="form.family">
-            <option value="felines">Felines</option>
-            <option value="canines">Canines</option>
-            <option value="reptiles">Reptiles</option>
-            <option value="mustelids">Mustelids</option>
-            <option value="leporidae">Leporidae</option>
-          </select>
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefault03"
+            v-model="form.family"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="validationDefault04" class="form-label">Gender</label>
@@ -110,7 +148,6 @@ const handleSubmit = async (event) => {
     </div>
   </main>
 </template>
-
 <style scoped>
 main {
   min-height: 810px;

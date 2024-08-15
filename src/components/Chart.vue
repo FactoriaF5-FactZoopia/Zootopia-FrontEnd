@@ -66,7 +66,7 @@ methods: {
       .catch(error => {
         console.error("Error fetching animal count:", error);
         console.log("Error, why");
-        
+
       });
 
 
