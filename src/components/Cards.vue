@@ -1,27 +1,21 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// Estado para manejar la visibilidad de las cartas
 const isVisible = ref(false);
 
-// Estado para manejar el volteo individual de cada carta
 const flippedCards = ref([]);
 
-// Estado para almacenar la lista de animales
 const animals = ref([]);
 
-// Credenciales para la autenticación básica
 const username = "flash@gmail.com";
 const password = "password";
 const headers = new Headers();
 headers.set("Authorization", "Basic " + btoa(username + ":" + password));
 
-// Función para manejar el volteo de las cartas
 function handleFlip(index) {
   flippedCards.value[index] = !flippedCards.value[index];
 }
 
-// Función para obtener los datos de los animales desde el backend
 async function fetchAnimals() {
   try {
     const response = await fetch("http://localhost:8080/api/v1/animals/all", {
@@ -36,14 +30,12 @@ async function fetchAnimals() {
     const data = await response.json();
     animals.value = data;
 
-    // Inicializar flippedCards según la cantidad de animales
     flippedCards.value = new Array(data.length).fill(false);
   } catch (error) {
     console.error("Error fetching animals:", error);
   }
 }
 
-// Obtener los datos al montar el componente
 onMounted(() => {
   fetchAnimals();
   setTimeout(() => {
@@ -54,15 +46,15 @@ onMounted(() => {
 
 <template>
   <main>
-    <div id="boxMain">
+    <div id="boxMain" :class="{ visible: isVisible }">
       <div v-for="(animal, index) in animals" :key="index" id="border">
-        <div id="boxCard" :class="{ visible: isVisible }">
+        <div id="boxCard">
           <div id="flip" :class="{ flipped: flippedCards[index] }">
             <div class="flipper">
               <div id="boxFlip" class="front">
                 <div id="boxImg">
                   <div id="img">
-                    <img src="../assets/canido.jpg" id="imagen" alt="" />
+                    <img src="../assets/elefante.jpg" id="imagen" alt="" />
                   </div>
                 </div>
 
@@ -81,7 +73,7 @@ onMounted(() => {
                     <div id="animalType">ANIMAL TYPE</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="ResultanimalType">{{ animal.animalType }}</div>
+                    <div id="ResultanimalType">{{ animal.animalsType }}</div>
                   </div>
                   <div id="boxInformation">
                     <div id="specie">SPECIE</div>
@@ -198,8 +190,13 @@ main {
     rgba(63, 179, 126, 1) 100%
   );
   border-radius: 10px;
+}
+#boxMain {
   opacity: 0;
   transition: opacity 5s ease-in-out;
+}
+#boxMain.visible {
+  opacity: 1;
 }
 #boxCard:hover {
   background: rgb(63, 179, 126);
@@ -353,5 +350,11 @@ main {
 }
 #contBack {
   margin-top: 10px;
+}
+@media (max-width: 480px) {
+  #boxMain {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 </style>

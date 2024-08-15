@@ -47,9 +47,9 @@ onMounted(() => {
 
 <template>
   <main>
-    <div id="boxMain">
+    <div id="boxMain" :class="{ visible: isVisible }">
       <div v-for="(animal, index) in animals" :key="index" id="border">
-        <div id="boxCard" :class="{ visible: isVisible }">
+        <div id="boxCard">
           <div id="flip" :class="{ flipped: flippedCards[index] }">
             <div class="flipper">
               <div id="boxFlip" class="front">
@@ -191,8 +191,13 @@ main {
     rgba(63, 179, 126, 1) 100%
   );
   border-radius: 10px;
+}
+#boxMain {
   opacity: 0;
   transition: opacity 5s ease-in-out;
+}
+#boxMain.visible {
+  opacity: 1;
 }
 #boxCard:hover {
   background: rgb(63, 179, 126);
@@ -346,5 +351,11 @@ main {
 }
 #contBack {
   margin-top: 10px;
+}
+@media (max-width: 480px) {
+  #boxMain {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 </style>
