@@ -16,7 +16,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Development   hhhh
 
 ```sh
 npm run dev
@@ -31,5 +31,5 @@ npm run build
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+npm run test:unit ok
 ```
