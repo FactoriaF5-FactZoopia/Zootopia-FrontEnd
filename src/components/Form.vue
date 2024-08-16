@@ -10,34 +10,69 @@ const form = ref({
 });
 
 const errorMessage = ref("");
+const successMessage = ref(""); // Estado para el mensaje de éxito
 
 const handleSubmit = async (event) => {
   event.preventDefault();
+
+  const genderChar = form.value.gender === "Male" ? "M" : "F";
+  const animalTypeMap = {
+    Feline: "Feline",
+    Canine: "Canine",
+    Reptile: "Reptile",
+    Mustelide: "Mustelide",
+    Leporidae: "Leporidae",
+  };
+  const animalType = animalTypeMap[form.value.type] || "";
+
   if (
     form.value.name &&
-    form.value.type &&
+    animalType &&
     form.value.family &&
-    form.value.gender &&
+    genderChar &&
     form.value.date
   ) {
     try {
       errorMessage.value = "";
+      successMessage.value = ""; // Limpiar el mensaje de éxito
 
-      const response = await fetch("http://localhost:8080/api/v1/animals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Basic " + btoa("flashTheRapidash:password"), // Reemplaza con las credenciales correctas
-        },
-        body: JSON.stringify(form.value),
-      });
+      const username = "flash@gmail.com";
+      const password = "password";
+      const headers = new Headers();
+      headers.set("Authorization", "Basic " + btoa(username + ":" + password));
+      headers.set("Content-Type", "application/json");
+
+      const response = await fetch(
+        "http://localhost:8080/api/v1/animals/create",
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({
+            name: form.value.name,
+            animalsType: animalType,
+            specie: form.value.family,
+            gender: genderChar,
+            date: form.value.date,
+          }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
-        alert("Animal created successfully!");
+        successMessage.value = "Animal created successfully!"; // Establecer el mensaje de éxito
         console.log("Response:", data);
+
+        // Opcional: Limpiar el formulario después de añadir un animal
+        form.value = {
+          name: "",
+          type: "",
+          family: "",
+          gender: "",
+          date: "",
+        };
       } else {
-        throw new Error("Failed to create the animal");
+        const errorData = await response.json();
+        throw new Error(`Failed to create the animal: ${errorData.message}`);
       }
     } catch (error) {
       console.error("There was an error creating the animal:", error);
@@ -49,6 +84,7 @@ const handleSubmit = async (event) => {
   }
 };
 </script>
+
 <template>
   <main>
     <div class="container">
@@ -63,26 +99,29 @@ const handleSubmit = async (event) => {
             required
           />
         </div>
+
         <div class="form-group">
           <label for="validationDefault02" class="form-label">Type</label>
+          <select id="dropdown" class="form-control" v-model="form.type">
+            <option value="Feline">Feline</option>
+            <option value="Canine">Canine</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Mustelide">Mustelide</option>
+            <option value="Leporidae">Leporidae</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="validationDefault03" class="form-label">Family</label>
           <input
             type="text"
             class="form-control"
-            id="validationDefault02"
-            v-model="form.type"
+            id="validationDefault03"
+            v-model="form.family"
             required
           />
         </div>
-        <div class="form-group">
-          <label for="validationDefault03" class="form-label">Family</label>
-          <select id="dropdown" class="form-control" v-model="form.family">
-            <option value="felines">Felines</option>
-            <option value="canines">Canines</option>
-            <option value="reptiles">Reptiles</option>
-            <option value="mustelids">Mustelids</option>
-            <option value="leporidae">Leporidae</option>
-          </select>
-        </div>
+
         <div class="form-group">
           <label for="validationDefault04" class="form-label">Gender</label>
           <select id="dropdown" class="form-control" v-model="form.gender">
@@ -90,6 +129,7 @@ const handleSubmit = async (event) => {
             <option value="Female">Female</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="validationDefault05" class="form-label">Date</label>
           <input
@@ -100,12 +140,22 @@ const handleSubmit = async (event) => {
             required
           />
         </div>
+
         <div class="form-group">
           <div id="buttonFinal">
             <button class="btn btn-primary" type="submit">Add Animal</button>
           </div>
         </div>
-        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <!-- Mostrar el mensaje de éxito si existe -->
+        <div v-if="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+
+        <!-- Mostrar el mensaje de error si existe -->
+        <div v-if="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
       </form>
     </div>
   </main>
@@ -118,6 +168,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -187,6 +238,21 @@ main {
     background-position: 100% 50%;
   }
 }
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
 @media (max-width: 1800px) {
   #koala {
     opacity: 0;

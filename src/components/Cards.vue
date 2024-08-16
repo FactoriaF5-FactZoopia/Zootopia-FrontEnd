@@ -1,17 +1,65 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// Estado para manejar la visibilidad de las cartas
 const isVisible = ref(false);
+const flippedCards = ref([]);
+const animals = ref([]);
 
-// Estado para manejar el volteo individual de cada carta
-const flippedCards = ref([false, false, false, false]);
+const animalImages = {
+  Feline: "../assets/felido.jpg",
+  Canine: "../assets/canido.jpg",
+  Reptile: "../assets/reptiles.jpg",
+  Mustelide: "../assets/mustelido.jpg",
+  Leporidae: "../assets/leporidae.jpg",
+};
+
+const username = "flash@gmail.com";
+const password = "password";
+const headers = new Headers();
+headers.set("Authorization", "Basic " + btoa(username + ":" + password));
+
+async function fetchAnimals() {
+  try {
+    const response = await fetch("http://localhost:8080/api/v1/animals/all", {
+      method: "GET",
+      headers: headers,
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    animals.value = data;
+    flippedCards.value = new Array(data.length).fill(false);
+  } catch (error) {
+    console.error("Error fetching animals:", error);
+  }
+}
+
+async function deleteAnimal(id, index) {
+  try {
+    const response = await fetch(`http://localhost:8080/api/v1/animals/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete animal");
+    }
+
+    animals.value.splice(index, 1);
+    flippedCards.value.splice(index, 1);
+  } catch (error) {
+    console.error("Error deleting animal:", error);
+  }
+}
 
 function handleFlip(index) {
   flippedCards.value[index] = !flippedCards.value[index];
 }
 
 onMounted(() => {
+  fetchAnimals();
   setTimeout(() => {
     isVisible.value = true;
   }, 100);
@@ -20,15 +68,15 @@ onMounted(() => {
 
 <template>
   <main>
-    <div id="boxMain">
-      <div v-for="(flipped, index) in flippedCards" :key="index" id="border">
-        <div id="boxCard" :class="{ visible: isVisible }">
-          <div id="flip" :class="{ flipped: flipped }">
+    <div id="boxMain" :class="{ visible: isVisible }">
+      <div v-for="(animal, index) in animals" :key="index" id="border">
+        <div id="boxCard">
+          <div id="flip" :class="{ flipped: flippedCards[index] }">
             <div class="flipper">
               <div id="boxFlip" class="front">
                 <div id="boxImg">
                   <div id="img">
-                    <img src="../assets/canido.jpg" id="imagen" alt="" />
+                    <img src="../assets/elefante.jpg" id="imagen" alt="" />
                   </div>
                 </div>
 
@@ -37,7 +85,7 @@ onMounted(() => {
                     <div id="name">NAME</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="ResultName">Pepin</div>
+                    <div id="ResultName">{{ animal.name }}</div>
                   </div>
                 </div>
               </div>
@@ -47,25 +95,25 @@ onMounted(() => {
                     <div id="animalType">ANIMAL TYPE</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="ResultanimalType">Feline</div>
+                    <div id="ResultanimalType">{{ animal.animalsType }}</div>
                   </div>
                   <div id="boxInformation">
                     <div id="specie">SPECIE</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="Resultspecie">Lion</div>
+                    <div id="Resultspecie">{{ animal.specie }}</div>
                   </div>
                   <div id="boxInformation">
                     <div id="gender">GENDER</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="Resultgender">Male</div>
+                    <div id="Resultgender">{{ animal.gender }}</div>
                   </div>
                   <div id="boxInformation">
                     <div id="date">DATE</div>
                   </div>
                   <div id="boxResultInformation">
-                    <div id="Resultdate">10-06-2024</div>
+                    <div id="Resultdate">{{ animal.date }}</div>
                   </div>
                 </div>
               </div>
@@ -79,7 +127,8 @@ onMounted(() => {
               <img
                 class="bin"
                 src="../assets/borrarAnimal.png"
-                alt="Card image cap"
+                alt="Delete icon"
+                @click="deleteAnimal(animal.id, index)"
               />
             </div>
           </div>
@@ -164,8 +213,13 @@ main {
     rgba(63, 179, 126, 1) 100%
   );
   border-radius: 10px;
+}
+#boxMain {
   opacity: 0;
   transition: opacity 5s ease-in-out;
+}
+#boxMain.visible {
+  opacity: 1;
 }
 #boxCard:hover {
   background: rgb(63, 179, 126);
@@ -319,5 +373,11 @@ main {
 }
 #contBack {
   margin-top: 10px;
+}
+@media (max-width: 480px) {
+  #boxMain {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 </style>
