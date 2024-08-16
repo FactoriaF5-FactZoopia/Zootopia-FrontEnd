@@ -3,21 +3,19 @@ import { ref } from "vue";
 
 const form = ref({
   name: "",
-  type: "", // Asegúrate de que estos valores coincidan con los valores que espera el backend
+  type: "",
   family: "",
   gender: "",
   date: "",
 });
 
 const errorMessage = ref("");
+const successMessage = ref(""); // Estado para el mensaje de éxito
 
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  // Mapeo del género a un solo carácter
   const genderChar = form.value.gender === "Male" ? "M" : "F";
-
-  // Mapeo del tipo de animal a los valores esperados por el backend con la primera letra en mayúscula
   const animalTypeMap = {
     Feline: "Feline",
     Canine: "Canine",
@@ -36,21 +34,13 @@ const handleSubmit = async (event) => {
   ) {
     try {
       errorMessage.value = "";
+      successMessage.value = ""; // Limpiar el mensaje de éxito
 
       const username = "flash@gmail.com";
       const password = "password";
       const headers = new Headers();
       headers.set("Authorization", "Basic " + btoa(username + ":" + password));
       headers.set("Content-Type", "application/json");
-
-      // Verifica los valores antes de enviarlos
-      console.log("Form Data:", {
-        name: form.value.name,
-        animalsType: animalType, // Enviar 'animalsType' en lugar de 'animalType'
-        specie: form.value.family,
-        gender: genderChar, // Enviar 'M' o 'F'
-        date: form.value.date,
-      });
 
       const response = await fetch(
         "http://localhost:8080/api/v1/animals/create",
@@ -59,9 +49,9 @@ const handleSubmit = async (event) => {
           headers: headers,
           body: JSON.stringify({
             name: form.value.name,
-            animalsType: animalType, // Enviar 'animalsType' en lugar de 'animalType'
+            animalsType: animalType,
             specie: form.value.family,
-            gender: genderChar, // Enviar 'M' o 'F'
+            gender: genderChar,
             date: form.value.date,
           }),
         }
@@ -69,8 +59,17 @@ const handleSubmit = async (event) => {
 
       if (response.ok) {
         const data = await response.json();
-        alert("Animal created successfully!");
+        successMessage.value = "Animal created successfully!"; // Establecer el mensaje de éxito
         console.log("Response:", data);
+
+        // Opcional: Limpiar el formulario después de añadir un animal
+        form.value = {
+          name: "",
+          type: "",
+          family: "",
+          gender: "",
+          date: "",
+        };
       } else {
         const errorData = await response.json();
         throw new Error(`Failed to create the animal: ${errorData.message}`);
@@ -111,6 +110,7 @@ const handleSubmit = async (event) => {
             <option value="Leporidae">Leporidae</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="validationDefault03" class="form-label">Family</label>
           <input
@@ -121,6 +121,7 @@ const handleSubmit = async (event) => {
             required
           />
         </div>
+
         <div class="form-group">
           <label for="validationDefault04" class="form-label">Gender</label>
           <select id="dropdown" class="form-control" v-model="form.gender">
@@ -128,6 +129,7 @@ const handleSubmit = async (event) => {
             <option value="Female">Female</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="validationDefault05" class="form-label">Date</label>
           <input
@@ -138,16 +140,27 @@ const handleSubmit = async (event) => {
             required
           />
         </div>
+
         <div class="form-group">
           <div id="buttonFinal">
             <button class="btn btn-primary" type="submit">Add Animal</button>
           </div>
         </div>
-        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <!-- Mostrar el mensaje de éxito si existe -->
+        <div v-if="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+
+        <!-- Mostrar el mensaje de error si existe -->
+        <div v-if="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
       </form>
     </div>
   </main>
 </template>
+
 <style scoped>
 main {
   min-height: 810px;
@@ -155,6 +168,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -224,6 +238,21 @@ main {
     background-position: 100% 50%;
   }
 }
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
 @media (max-width: 1800px) {
   #koala {
     opacity: 0;
