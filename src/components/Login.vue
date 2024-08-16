@@ -1,4 +1,45 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const username = ref('');
+const password = ref('');
+const router = useRouter();
+const errorMessage = ref('');
+
+const login = async () => {
+  const authValue = `${username.value}:${password.value}`;
+  const encodedAuthValue = btoa(authValue);
+
+  const myHeaders = new Headers();
+  myHeaders.append('Authorization', `Basic ${encodedAuthValue}`);
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+  };
+
+  try {
+    const response = await fetch('http://localhost:8080/api/v1/login', requestOptions);
+
+    if (response.ok) {
+      router.push('/counter');
+      console.log("WE DID IT AGAIN!");
+      
+    } else {
+      errorMessage.value = 'Invalid Credentials';
+      console.log("A POSITIVE MISTAKE, MEANS THAT DONT LET IN ANYONE!!!!!");
+      
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    errorMessage.value = 'There was an error logging in. Please try again.';
+    console.log("WHY FAILED AGAIN, FORGIVE IT, I WONT SURRENDER!!!!!!!!");
+    
+  }
+};
+</script>
 
 <template>
   <main>
@@ -18,8 +59,9 @@
         <div class="form-group">
           <input
             type="text"
+            v-model="username"
             class="form-control"
-            placeholder="Username "
+            placeholder="Username"
             id="UserName"
           />
           <i class="mdi mdi-account"></i>
@@ -27,30 +69,23 @@
         <div class="form-group log-status">
           <input
             type="password"
+            v-model="password"
             class="form-control"
             placeholder="Password"
-            id="Passwod"
+            id="Password"
           />
           <i class="mdi mdi-lock"></i>
         </div>
-        <span class="alert">Invalid Credentials</span>
-        <RouterLink to="/counter"
-          ><div id="boxButton">
-            <button type="button" class="log-btn">
-              <i class="mdi mdi-account"></i> LOGIN
-            </button>
-          </div></RouterLink
-        >
+        <span v-if="errorMessage" class="alert">{{ errorMessage }}</span>
+        <div id="boxButton">
+          <button @click="login" type="button" class="log-btn">
+            <i class="mdi mdi-account"></i> LOGIN
+          </button>
+        </div>
       </div>
     </div>
   </main>
 </template>
-
-<script setup>
-
-
-
-</script>
 
 <style scoped>
 main {
